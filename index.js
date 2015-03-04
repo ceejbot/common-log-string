@@ -6,12 +6,14 @@ module.exports = function generateCommonLog(request, response)
     var payload_len = response._data ? response._data.length : '-';
     var UA = request.headers['user-agent'] || '';
     var referer = request.headers['referer'] || '';
+    var tstamp = response._time ? new Date(response._time) : new Date();
+    var remote = request.socket.remoteAddress || '';
 
     var fields = [
-        request.socket.remoteAddress, // client ip
+        remote.replace('::ffff:', ''), // client ip
         '-',  // RFC 1413, never used
         '-',   // userid as determined by http auth
-        '[' + strftime(new Date(response._time), '%d/%b/%Y:%H:%M:%S %z') + ']', // time
+        '[' + strftime(tstamp, '%d/%b/%Y:%H:%M:%S %z') + ']', // time
         '"' + [request.method, request.url, protocol].join(' ') + '"',
         response.statusCode,
         payload_len,
