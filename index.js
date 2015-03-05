@@ -8,6 +8,7 @@ module.exports = function generateCommonLog(request, response)
     var referer = request.headers['referer'] || '';
     var tstamp = response._time ? new Date(response._time) : new Date();
     var remote = request.socket.remoteAddress || '';
+    var accepts = request.headers['accept'] || '';
 
     var fields = [
         remote.replace('::ffff:', ''), // client ip
@@ -19,6 +20,7 @@ module.exports = function generateCommonLog(request, response)
         payload_len,
         '"' + referer + '"',
         '"' + UA + '"',
+        '"' + accepts + '"',
     ];
 
     return fields.join(' ');
