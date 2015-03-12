@@ -18,16 +18,12 @@
     "url": "https://github.com/ceejbot/common-log-string.git"
   },
   "keywords": [
-    "common",
-    "log",
-    "format",
+    "common log format",
     "apache",
-    "log",
-    "format",
+    "log format",
     "logging",
-    "http",
-    "request",
-    "logging"
+    "http request logging",
+    "restify"
   ],
   "author": "C J Silverio <ceejceej@gmail.com>",
   "license": "ISC",
