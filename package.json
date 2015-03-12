@@ -1,6 +1,6 @@
 {
   "name": "common-log-string",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "dead stupid function to generate a common-log-format-ish string from request & response objects",
   "main": "index.js",
   "dependencies": {
