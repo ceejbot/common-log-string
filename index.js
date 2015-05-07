@@ -7,10 +7,20 @@ module.exports = function generateCommonLog(request, response, options)
     var UA = request.headers['user-agent'] || '-';
     var referer = request.headers['referer'] || '-';
     var tstamp = response._time ? new Date(response._time) : new Date();
-    var remote = (options && options.ipHeader ? request.headers[options.ipHeader] : '') ||
-                 (request.socket ? request.socket.remoteAddress : '') || '';
     var accepts = request.headers['accept'] || '-';
     var elapsed = response._time ? (Date.now() - response._time) + ' ms' : '';
+
+    var remote = '';
+
+    if (options && options.ipHeader)
+    {
+        remote = request.headers[options.ipHeader];
+    }
+    else if (request.socket)
+    {
+        remote = request.socket.remoteAddress;
+    }
+
 
     var fields = [
         remote.replace('::ffff:', ''), // client ip
