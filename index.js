@@ -2,6 +2,10 @@ var strftime = require('prettydate').strftime;
 
 module.exports = function generateCommonLog(request, response, options)
 {
+    if (!request || !response) return '';
+
+    options = options || {};
+
     var protocol = 'HTTP/' + request.httpVersion;
     var payload_len = response._data ? response._data.length : '-';
     var UA = request.headers['user-agent'] || '-';
@@ -12,15 +16,10 @@ module.exports = function generateCommonLog(request, response, options)
 
     var remote = '';
 
-    if (options && options.ipHeader)
-    {
+    if (options.ipHeader)
         remote = request.headers[options.ipHeader];
-    }
     else if (request.socket)
-    {
         remote = request.socket.remoteAddress;
-    }
-
 
     var fields = [
         remote.replace('::ffff:', ''), // client ip

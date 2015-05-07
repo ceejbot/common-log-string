@@ -38,6 +38,12 @@ Order of fields:
 
 The second to last is non-standard but useful.
 
+## Options
+
+You may optionally pass an options object as the third parameter to the function. One option is currently respected:
+
+`ipHeader`: report the client IP from this header instead of the address of the remote socket. Useful if you wish to log X-Forwarded-For IPs instead of the IP of an intermediate proxy.
+
 ## LICENSE
 
 ISC.
