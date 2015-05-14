@@ -14,12 +14,14 @@ module.exports = function generateCommonLog(request, response, options)
     var accepts = request.headers['accept'] || '-';
     var elapsed = response._time ? (Date.now() - response._time) + ' ms' : '';
 
-    var remote = '';
+    var remote;
 
     if (options.ipHeader)
         remote = request.headers[options.ipHeader];
     else if (request.socket)
         remote = request.socket.remoteAddress;
+
+    remote = remote || '';
 
     var fields = [
         remote.replace('::ffff:', ''), // client ip
