@@ -2,7 +2,7 @@
 
 Dead stupid function to generate a common-log-format-ish string from request & response objects. Not guaranteed to work with anything other than node-restify.
 
-[![npm](http://img.shields.io/npm/v/common-log-string.svg?style=flat)](https://www.npmjs.org/package/common-log-string)
+[![on npm](http://img.shields.io/npm/v/common-log-string.svg?style=flat)](https://www.npmjs.org/package/common-log-string)  [![Tests](http://img.shields.io/travis/ceejbot/common-log-string.svg?style=flat)](http://travis-ci.org/ceejbot/common-log-string)
 
 I wrote this because I wanted something that didn't attempt to write things to a log file and could be plugged into restify as middleware. Sample output:
 
