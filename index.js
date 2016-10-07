@@ -16,10 +16,14 @@ module.exports = function generateCommonLog(request, response, options)
 
     var remote;
 
-    if (options.ipHeader)
+    if (options.ipHeader && request.headers[options.ipHeader])
+    {
         remote = request.headers[options.ipHeader];
+    }
     else if (request.socket)
+    {
         remote = request.socket.remoteAddress;
+    }
 
     remote = remote || '';
 
