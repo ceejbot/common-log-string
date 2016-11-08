@@ -1,35 +1,35 @@
 {
   "name": "common-log-string",
-  "version": "0.3.0",
   "description": "dead stupid function to generate a common-log-format-ish string from request & response objects",
-  "main": "index.js",
+  "version": "0.3.0",
+  "author": "C J Silverio <ceejceej@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ceejbot/common-log-string/issues"
+  },
   "dependencies": {
     "prettydate": "0.0.1"
   },
   "devDependencies": {
-    "mocha": "^3.1.0",
-    "must": "^0.13.2",
-    "nyc": "^8.3.0"
+    "mocha": "~3.1.2",
+    "must": "~0.13.2",
+    "nyc": "~8.4.0"
   },
-  "scripts": {
-    "test": "nyc mocha -R spec"
-  },
+  "homepage": "https://github.com/ceejbot/common-log-string",
+  "keywords": [
+    "apache",
+    "common log format",
+    "http request logging",
+    "log format",
+    "logging",
+    "restify"
+  ],
+  "license": "ISC",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ceejbot/common-log-string.git"
   },
-  "keywords": [
-    "common log format",
-    "apache",
-    "log format",
-    "logging",
-    "http request logging",
-    "restify"
-  ],
-  "author": "C J Silverio <ceejceej@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ceejbot/common-log-string/issues"
-  },
-  "homepage": "https://github.com/ceejbot/common-log-string"
+  "scripts": {
+    "test": "nyc mocha -R spec"
+  }
 }
