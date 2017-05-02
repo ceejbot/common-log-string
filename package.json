@@ -10,9 +10,9 @@
     "prettydate": "0.0.1"
   },
   "devDependencies": {
-    "mocha": "~3.1.2",
+    "mocha": "~3.3.0",
     "must": "~0.13.2",
-    "nyc": "~8.4.0"
+    "nyc": "~10.3.0"
   },
   "homepage": "https://github.com/ceejbot/common-log-string",
   "keywords": [
