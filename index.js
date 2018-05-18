@@ -7,12 +7,17 @@ module.exports = function generateCommonLog(request, response, options)
     options = options || {};
 
     var protocol = 'HTTP/' + request.httpVersion;
-    var payload_len = response._data ? response._data.length : '-';
+    var payload_len = (response._data && response._data.length) || request.headers['content-length'];
+    payload_len = payload_len || '-';
+
     var UA = request.headers['user-agent'] || '-';
     var referer = request.headers['referer'] || '-';
-    var tstamp = response._time ? new Date(response._time) : new Date();
+    var tstamp = (response._time && new Date(response._time)) || (request.start && new Date(request.start));
+    tstamp = tstamp || new Date();
+
     var accepts = request.headers['accept'] || '-';
-    var elapsed = response._time ? (Date.now() - response._time) + ' ms' : '';
+    var elapsed = (response._time && (Date.now() - response._time)) || request.latency
+    elapsed = (elapsed && elapsed + ' ms') || '';
 
     var remote;
 
@@ -23,6 +28,10 @@ module.exports = function generateCommonLog(request, response, options)
     else if (request.socket)
     {
         remote = request.socket.remoteAddress;
+    }
+    else if (request.remoteAddress)
+    {
+        remote = request.remoteAddress;
     }
 
     remote = remote || '';
