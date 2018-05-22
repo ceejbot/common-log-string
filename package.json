@@ -1,7 +1,7 @@
 {
   "name": "common-log-string",
   "description": "dead stupid function to generate a common-log-format-ish string from request & response objects",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "C J Silverio <ceejceej@gmail.com>",
   "bugs": {
     "url": "https://github.com/ceejbot/common-log-string/issues"
